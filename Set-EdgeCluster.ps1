@@ -280,24 +280,3 @@ $headers = @{
 		else { 	Write-Log $logFile 0 "full" "Could not find cluster resource pool $destinationParentCluster" 	}
 	}
 	else { 	Write-Log $logFile 0 "full" "Could not find Provider VDC $providerVDC" 	}
-	#>
-	
-	
-	
-	
-	<#
-	# Get Resource pool and validate destinationParentCluster 
-	# can't do this from vCD because management-edge is not presented into vCD
-	$URI = "https://$vcdServer/api/query?type=resourcePool&fields=name,vc"
-	$response = Invoke-RestMethod -Uri $URI -Headers $headers -Method GET -WebSession $vcdSession
-	$resourcePoolList = $response.QueryResultRecords.ResourcePoolRecord
-	$rpFound = $false
-	foreach ($rp in $resourcePoolList) {
-		if ($rp.name.ToLower() -eq $destinationParentCluster.ToLower()) {
-			$vcHref = $rp.vc
-			$rpFound = $true
-			break
-		}
-	}
-	#>
-
