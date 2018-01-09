@@ -28,11 +28,11 @@ Param (
 # Author: Giuliano Bertello <giuliano.bertello@gmail.com>
 # Date: 08/01/2018
 # Script Logic:
-# - get pvdc name from vCD
-# - create new rp under edge cluster matching pvdc name
-# - from pvdca add new rp rp-edge-pvdca
-# - get rp-edge-pvdca id
-# - from vcd edit pvdc as system admin and metadata placement.resourcepool.edge = <res-id>
+# - Validate PVDC and Cluster exist
+# - Create new Resource Pool for Edge cluster
+# - From pvdca add new rp rp-edge-pvdca
+# - Get edge resource pool id
+# - Edit pvdc as system admin adding metadata placement.resourcepool.edge = <res-id>
 
 Function Write-Log {
 	
